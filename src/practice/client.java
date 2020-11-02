@@ -13,5 +13,7 @@ public class client {
      list.display();
             System.out.println(list.removeLast());
             list.display();
+            list.reverse();
+            list.display();
     }
 }

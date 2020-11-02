@@ -4,7 +4,7 @@ import com.sun.jdi.PathSearchingVirtualMachine;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
+//import java.util.LinkedList;
 import java.util.Queue;
 
 public class LinkedList2 {
@@ -98,11 +98,11 @@ public class LinkedList2 {
 
     }
     public int removeAt(int val){
-        if(size<=1){
-            removeFirst();
+        if(val==0){
+           return removeFirst();
         }
         if(val==size-1){
-            removeLast();
+             return removeLast();
         }
 
         Node prev= getNode(val-1);
@@ -116,9 +116,11 @@ public class LinkedList2 {
     public void insertAt(int index,int val){
         if(size==0){
             addFirst(val);
+            return;
         }
         if(size==index){
             addLast(val);
+            return;
         }
         if(index>size){
             System.out.println("pagal");
@@ -132,8 +134,94 @@ public class LinkedList2 {
 
     }
     public  void reverse(){
-        
+        reverse(head);
     }
+    private void reverse(Node node){
+        if(node==tail){
+            head=tail;
+            return;
+        }
+        reverse(node.next);
+        tail.next=node;
+        tail=node;
+        node.next=null;
+    }
+    public void intersection(Node n1,Node n2){
+
+        Node temp1=n1;
+        Node temp2=n2;
+        int count1=1;
+        int count2=1;
+
+        while(temp1!=null){
+            temp1=temp1.next;
+            count1++;
+        }
+        while(temp2!=null){
+            temp2=temp2.next;
+            count2++;
+
+        }
+        int k=Math.abs(count1-count2);
+        if(count1>count2) {
+            for (int i = 0; i < k; i++) {
+                n1 = n1.next;
+            }
+        }
+            else{
+                for(int j=0;j<k;j++){
+                    n2=n2.next;
+                }
+
+            }
+            while(n1!=n2){
+                n1=n1.next;
+                n2=n2.next;
+            }
+        System.out.println(n1.value);
+
+
+
+
+    }
+
+    public Node mid(){
+        Node slow=head;
+        Node fast=head;
+        while(fast.next!=null&&fast.next.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+
+    }
+    public LinkedList2 merger(LinkedList2 list2){
+        LinkedList2 list=new LinkedList2();
+        Node f=this.head;
+        Node s=list2.head;
+        while(f!=null&s!=null){
+            if(f.value<s.value){
+                list.addLast(f.value);
+                f=f.next;
+            }
+            else{
+                list.addLast(s.value);
+                s=s.next;
+            }
+        }
+        while(f!=null){
+            list.addLast(f.value);
+            f=f.next;
+        }
+        while(s!=null){
+            list.addLast(s.value);
+            s=s.next;
+        }
+        return list;
+
+
+    }
+
 
 
 
