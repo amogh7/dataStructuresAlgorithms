@@ -1,11 +1,6 @@
 package practice;
 
-import com.sun.jdi.PathSearchingVirtualMachine;
 
-import java.util.HashMap;
-import java.util.HashSet;
-//import java.util.LinkedList;
-import java.util.Queue;
 
 public class LinkedList2 {
     Node head;
@@ -37,7 +32,7 @@ public class LinkedList2 {
         if(size>=1) {
             tail.next = node;
         }
-         if(size==0){
+        else if(size==0){
             head=node;
         }
         tail=node;
@@ -195,11 +190,11 @@ public class LinkedList2 {
         return slow;
 
     }
-    public LinkedList2 merger(LinkedList2 list2){
+    public LinkedList2 merger(LinkedList2 list1,LinkedList2 list2){
         LinkedList2 list=new LinkedList2();
-        Node f=this.head;
+        Node f=list1.head;
         Node s=list2.head;
-        while(f!=null&s!=null){
+        while(f!=null && s!=null){
             if(f.value<s.value){
                 list.addLast(f.value);
                 f=f.next;
@@ -220,6 +215,33 @@ public class LinkedList2 {
         return list;
 
 
+    }
+    public LinkedList2 merge(LinkedList2 list){
+
+        if(list.size == 1){
+            return list;
+        }
+
+        LinkedList2 first = new LinkedList2();
+        LinkedList2 second = new LinkedList2();
+
+        Node mid = list.mid();
+        System.out.println(mid.value);
+
+        first.head = list.head;
+        first.tail = mid;
+        first.size = (list.size+1)/2;
+
+        second.head = mid.next;
+        second.tail = list.tail;
+        second.size = list.size/2;
+
+        mid.next=null;
+
+        first =merge(first);
+        second =merge(second);
+
+        return merger(first,second);
     }
 
 
