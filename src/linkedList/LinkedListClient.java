@@ -1,8 +1,5 @@
 package linkedList;
 
-import jdk.swing.interop.SwingInterOpUtils;
-import practice.LinkedList2;
-
 import java.util.Scanner;
 
 public class LinkedListClient {
