@@ -22,7 +22,7 @@ public class StackUsingArray {
 
     public void push(int val){
         if (isFull()){
-          //  return;
+           return;
         }
         this.data[++top]=val;
         size++;
