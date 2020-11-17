@@ -11,15 +11,16 @@ public class redundantParenthesis {
         Stack<Character> stack=new Stack<>();
 
         for(int i=0;i<str.length();i++){
-            if(str.charAt(i)==(')')){
+            if(str.charAt(i)==')'){
                 if(stack.peek()=='('){
                     System.out.println("True");
                     return;
                 }
                 else{
-                    while(stack.peek()!=')'){
+                    while(stack.peek()!='('){
                         stack.pop();
                     }
+                    stack.pop();
                 }
             }
             else{

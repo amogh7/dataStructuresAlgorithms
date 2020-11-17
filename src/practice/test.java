@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class test {
     public static void main(String[] args)   throws FileNotFoundException {
         File file = new File("input");
-        Scanner readInput=new Scanner(file);
+        Scanner sc=new Scanner(file);
 
 
         int sum=0;
@@ -19,10 +19,10 @@ public class test {
 
         ArrayList<Integer> list=new ArrayList<>();
        String line;
-        int n = readInput.nextInt();
-          readInput.nextLine();
+        int n = sc.nextInt();
+          sc.nextLine();
 
-       while (!(line = readInput.nextLine()).isEmpty()) {
+       while (!(line = sc.nextLine()).isEmpty()) {
            int value=Integer.parseInt(line);
               list.add(value);
              count++;

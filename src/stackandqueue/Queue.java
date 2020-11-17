@@ -1,6 +1,6 @@
 package stackandqueue;
 
-public class Queue {
+public class Queue {// A more optimized queue can be by taking a front pointer also and it can be further optimized by making it circular queue
     private int data[];
     private int rear;
 

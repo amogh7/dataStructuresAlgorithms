@@ -1,6 +1,6 @@
 package oops;
 
-public  class Human {//objects are made just like humans are born so these states and behaviours can be used after creating instance of classes
+public  class  Human {//objects are made just like humans are born so these states and behaviours can be used after creating instance of classes
 //static members can be called by making instances also but it is not good practice
 //static can be used in world level gaming events enemy health can be defined using static ,so use of static can be defined according to use case
 
@@ -35,9 +35,14 @@ public  class Human {//objects are made just like humans are born so these state
 //    public void eat(){//this is non static ,static takes to class level which makes all instances have same common state or behaviour and changes are also same for that state
 //
 //    }
+public void loan(){//mutating behaviour changes states
+    balance =balance-99999999;
+    System.out.println("hayye me gareeb ho gye"+balance);
+    //fest(); static can be called through normal but normal cant be called through static without making instance
+}
 
-    public void hello(int balance){
-        //balance =balance-balance;
+    public void hello(int balance){//why this keyword is used
+        //balance =balance-balance; //not making sense so this keyword is used
         this.balance =this.balance-balance;//it is for variable in same class for different class super is used
     }
     public static void fest(){
@@ -50,18 +55,14 @@ public  class Human {//objects are made just like humans are born so these state
         }
         balance =balance -9999999;
     }
-    public void loan(){//mutating behaviour
-        balance =balance-99999999;
-        System.out.println("hayye me gareeb ho gye"+balance);
-        //fest(); static can be called through normal but normal cant be called through static without making instance
-    }
+
     public Human (Human old){// copy constructor it does not exist as default in java
         this.name=old.name;
         this.nose=old.nose;
     }
 
 }
-//every class can have on one public class other classe will be private or just class and name of the file has to be the name of public class
+
 // class pablo{
 //    public static void main(String[] args){//two classes can have main method but public access can not be given two both only one class can be public
 //
